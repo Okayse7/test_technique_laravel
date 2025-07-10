@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>@yield('title', 'App Laravel')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
+    @livewireStyles 
 </head>
 <body class="bg-gray-100 text-gray-900">
     <header class="bg-primary text-white p-4">
@@ -14,6 +14,6 @@
     <main class="p-6">
         @yield('content')
     </main>
-    @livewireScripts
+    @livewireScripts 
 </body>
 </html>

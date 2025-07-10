@@ -6,21 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-    // Champs autorisés pour l'assignation de masse (création/modification)
+    // Champs autorisés pour l'assignation de masse pour évtiter les erreurs de sécurité
     protected $fillable = [
-        'user_id',        // L'utilisateur qui a réservé
-        'property_id',   // Le bien réservé
-        'start_date',    // Date de début de la réservation
-        'end_date',      // Date de fin de la réservation
+        'user_id',        
+        'property_id',   
+        'start_date',    
+        'end_date',     
     ];
 
-    // Relation : une réservation appartient à un utilisateur
+    // réservation appartenant à un utilisateur
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Relation : une réservation concerne une propriété
+    // réservation concernant une propriété
     public function property()
     {
         return $this->belongsTo(Property::class);
