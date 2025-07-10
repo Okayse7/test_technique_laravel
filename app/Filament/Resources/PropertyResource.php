@@ -19,7 +19,7 @@ class PropertyResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form
+    public static function form(Form $form): Form // Formulaire pour la création et l'édition des propriétés
     {
         return $form
             ->schema([
@@ -37,7 +37,7 @@ class PropertyResource extends Resource
             ]);
     }
 
-    public static function table(Table $table): Table
+    public static function table(Table $table): Table // Tableau pour l'affichage des propriétés
     {
         return $table
             ->columns([
