@@ -26,9 +26,13 @@ class BookingManager extends Component
 
     public function submit() // lorsque l'utilisateur soumet le formulaire de réservation
     {
-        // Recherche d'un utilisateur (ici pour éviter des complications on prend le premier)
-        $user = User::first();
- 
+        // Associer la réservation à l'utilisateur connecté
+        $user = auth()->user();
+        if (!$user) {
+            session()->flash('success', "Vous devez être connecté pour réserver.");
+            return;
+        }
+
         $property = Property::find($this->property); // Recherche de la propriété par son ID dans la base de données
         if (!$property) {
             session()->flash('success', "Propriété introuvable");
@@ -43,7 +47,7 @@ class BookingManager extends Component
             'end_date' => $this->end_date ?: $this->date, // Utilise la date de fin si fournie
         ]);
 
-        session()->flash('success', 'Réservation enregistrée pour ' . $this->name . ' du ' . $this->date . ' au ' . ($this->end_date ?: $this->date) . ' pour la propriété : ' . $property->name);
+        session()->flash('success', 'Réservation enregistrée pour ' . $user->name . ' du ' . $this->date . ' au ' . ($this->end_date ?: $this->date) . ' pour la propriété : ' . $property->name);
         $this->reset(['name', 'date', 'end_date', 'showForm', 'property']);
     }
 

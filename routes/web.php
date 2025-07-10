@@ -12,7 +12,7 @@ Route::get('/home', function () {
         return $property;
     });
     return view('home', compact('properties')); // on passe les propriétés à la vue pour la route home
-});
+})->middleware('auth')->name('home'); // protection par authentification
 
 Route::get('/dashboard', function () { 
     return view('dashboard');
