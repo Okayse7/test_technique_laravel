@@ -28,18 +28,19 @@ Cette application permet de gérer des propriétés immobilières et d’enregis
    ```
 
 2. **Configurer l’environnement**
+   - Créer une base de données MySQL 
    - Créer et modifier le .env à partir du .env.example pour se connecter à sa base de données MySQL avec le nom de sa DB, l'utilisateur et le mdp  
    - Générer la clé d’application :
      ```sh
      php artisan key:generate
      ```
 
-3. **Migrer et peupler la base avec la seed **
+4. **Migrer et peupler la base avec la seed **
    ```sh
    php artisan migrate:fresh --seed
    ```
 
-4. **Lancer le serveur**
+5. **Lancer le serveur**
    ```sh
    php artisan serve
    ```
