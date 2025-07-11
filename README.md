@@ -28,7 +28,7 @@ Cette application permet de gérer des propriétés immobilières et d’enregis
    ```
 
 2. **Configurer l’environnement**
-   - Modifier le .env pour se connecter à sa base de données MySQL avec le nom de sa DB, l'utilisateur et le mdp  
+   - Créer et modifier le .env à partir du .env.example pour se connecter à sa base de données MySQL avec le nom de sa DB, l'utilisateur et le mdp  
    - Générer la clé d’application :
      ```sh
      php artisan key:generate
@@ -48,7 +48,7 @@ Cette application permet de gérer des propriétés immobilières et d’enregis
 
 ## Utilisation
 
-- Accéder à `http://localhost:8000/home` pour voir la liste des propriétés et réserver en tant que client.
+- Accéder à `http://localhost:8000/home` pour voir la liste des propriétés et réserver en tant que client ( on est redirigé vers le /login si on est pas connecté et dans ce cas prendre un des compte  .
 - Cliquer sur “Réserver” ouvre un formulaire Livewire pour saisir le nom et les dates.
 - Les réservations sont enregistrées et consultables dans l’admin Filament ou sur la base de données mysql.
 - Accéder à `http://localhost:8000/root` pour accéder à la partie admin (on peut se log avec un des faux comptes dans le fichier seed localisé dans ./database/seeders . 
